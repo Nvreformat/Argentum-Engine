@@ -8,6 +8,7 @@ A Game Engine of the original Visual Basic game Argentum Online written in C++ a
 To compile, run make.sh. It will output an executable called Game which is a demo of the engine working.
 
 Unfortunately, I can't get it to work on Windows (using GCC, I have not tried vith Visual Studio)
+Theorically, the code should be compatible with Windows
 
 # Dependencies
 
