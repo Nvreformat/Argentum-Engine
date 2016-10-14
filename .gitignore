@@ -3,3 +3,16 @@
 !*.h
 !make.sh
 !*.md
+!*.ini
+!*.ttf
+!*.ind
+!*.png
+!*.dat
+!*.bin
+!*.txt
+!*.ayu
+!*.con
+!*.map
+!*.mid
+!*.wav
+.gitignore
