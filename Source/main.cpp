@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 #include "graphics.h"
 #include "engine.h"
 #include "map.h"
@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
-#include <unistd.h>
+//#include <unistd.h>
 
 using namespace sf;
 using namespace std;

@@ -9,7 +9,7 @@ struct MapHeader
 	char Description[255];
 	uint32_t CRC;
 	uint32_t Magic;
-} __attribute__((packed));
+}; //__attribute__((packed));
 
 struct BufferedFile
 {
