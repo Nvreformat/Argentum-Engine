@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <cctype>
 #include <string>
-#include "unistd.h"
+//#include "unistd.h"
 #include "Lib/stringutils.h"
 
 #define MAX_LINE_LENGTH    512
@@ -32,15 +32,18 @@ int read_line(FILE *fp, char *bp)
    
 int get_private_profile_string(const char *section, const char *entry, const char *def, char *buffer, int buffer_len, const char *file_name)
 {
-	FILE *fp = fopen(file_name,"r");
+	FILE *fp;
+	fopen_s(&fp, file_name, "r");
 	char buff[MAX_LINE_LENGTH];
 	char *ep;
 	char t_section[MAX_LINE_LENGTH];
 	// entry == NULL means copy whole section
 	int len = (entry != NULL) ? strlen(entry) : 0;
 	
-	if(!fp) return 0;
-		sprintf(t_section,"[%s]",section);    /* Format the section name */
+	if(!fp)
+		return 0;
+
+	sprintf_s(t_section,"[%s]",section);    /* Format the section name */
 	
 	/*  Move through file 1 line at a time until a section is matched or EOF */
 	do
@@ -48,7 +51,7 @@ int get_private_profile_string(const char *section, const char *entry, const cha
 		if(!read_line(fp,buff))
 		{
 			fclose(fp);
-			strncpy(buffer,def,buffer_len);
+			strncpy_s(buffer, buffer_len, def, buffer_len);
 			
 			return strlen(buffer);
 		}
@@ -62,7 +65,7 @@ int get_private_profile_string(const char *section, const char *entry, const cha
 		if(!read_line(fp,buff) || buff[0] == '[')
 		{
 			fclose(fp);
-			strncpy(buffer,def,buffer_len);
+			strncpy_s(buffer, buffer_len, def, buffer_len);
 		
 			return(strlen(buffer));
 		}
@@ -74,7 +77,7 @@ int get_private_profile_string(const char *section, const char *entry, const cha
 		ep = strrchr(buff,'=');    /* Parse out the equal sign */
 		ep++;
 		/* Copy up to buffer_len chars to buffer */
-		strncpy(buffer,ep,buffer_len - 1);
+		strncpy_s(buffer, buffer_len - 1, ep, buffer_len - 1);
 	}
 	   
 	buffer[buffer_len - 1] = '\0';

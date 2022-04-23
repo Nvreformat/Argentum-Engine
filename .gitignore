@@ -1,4 +1,8 @@
 *
+!*.sln
+!*.vcxproj
+!*.vcxproj.filters
+!*.vcxproj.user
 !*.cpp
 !*.h
 !make.sh
@@ -15,4 +19,7 @@
 !*.map
 !*.mid
 !*.wav
+!/external/  
+!/external/*
+!/external/**/*
 .gitignore
